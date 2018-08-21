@@ -1,0 +1,6 @@
+[production]
+212.47.231.49
+
+[all:vars]
+ansible_user=root
+stack=production

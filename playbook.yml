@@ -1,0 +1,23 @@
+---
+- hosts: production
+  become: yes
+  roles:
+    - name: common
+    - name: docker
+      version: "18.03"
+    - name: docker_network
+      networks:
+        - postgres
+        - nginx
+    - name: postgres
+      version: "10.5"
+    - name: nginx
+      version: "1.14"
+  tasks:
+    # Reclaim hard drive space
+    - name: clean outdated docker images & stopped containers
+      shell: >
+        docker system prune --force &&
+        docker rmi $(docker images --quiet --filter dangling=true)
+      failed_when: no
+...

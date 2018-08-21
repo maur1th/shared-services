@@ -1,0 +1,8 @@
+---
+- name: "Create networks: {{', '.join(networks)}}"
+  docker_network:
+     name: "{{item}}"
+     driver: bridge
+     state: present
+  with_items: "{{networks}}"
+...
