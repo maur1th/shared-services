@@ -14,7 +14,7 @@
     - aptitude  # safe-upgrade dependency
     - ntp
     - prometheus-node-exporter
-    - python-pip
+    - python3-pip
     - sudo
     - tmux
     - vim
